@@ -9,14 +9,40 @@
 
 using namespace std;
 
+static const char alphanum[] =
+		"0123456789"
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		"abcdefghijklmnopqrstuvwxyz";
+
 class Package
 {
+protected:
+	string package;
+	int packageLength;
+
+	int GenerateSize();
+
 public:
-	Package();
-	~Package();
+	string virtual GeneratePackage() = 0;
+};
 
-	string generatePackage();
+class NumericPackage : public Package
+{
+public:
+	NumericPackage();
+	string GeneratePackage();
+};
 
-private:
-	string _package;
+class AlphabeticPackage : public Package
+{
+public:
+	AlphabeticPackage();
+	string GeneratePackage();
+};
+
+class AlphaNumericPackage : public Package
+{
+public:
+	AlphaNumericPackage();
+	string GeneratePackage();
 };

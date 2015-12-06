@@ -21,6 +21,15 @@
     <ClCompile Include="Package.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NumericPackage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlphabeticPackage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlphaNumericPackage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Package.h">
