@@ -24,6 +24,7 @@ protected:
 
 public:
 	string virtual GeneratePackage() = 0;
+	int GetLength();
 };
 
 class NumericPackage : public Package
