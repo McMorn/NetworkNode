@@ -1,8 +1,18 @@
 #include <iostream>
+#include <conio.h>
+#include <string>
+#include "Package.h"
+
 
 int main()
 {
-	std::cout << "Hello World";
+	srand(time(NULL));
 
+	Package package = Package();
+	string str = package.generatePackage();
+
+	cout << str;
+
+	_getch();
 	return 0;
 }
