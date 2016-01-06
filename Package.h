@@ -21,29 +21,33 @@ protected:
 	int packageLength;
 
 	int GenerateSize();
+	string virtual GeneratePackage() = 0;
 
 public:
-	string virtual GeneratePackage() = 0;
 	int GetLength();
+	string GetPackage();
 };
 
 class NumericPackage : public Package
 {
+	string GeneratePackage();
+
 public:
 	NumericPackage();
-	string GeneratePackage();
 };
 
 class AlphabeticPackage : public Package
 {
+	string GeneratePackage();
+
 public:
 	AlphabeticPackage();
-	string GeneratePackage();
 };
 
 class AlphaNumericPackage : public Package
 {
+	string GeneratePackage();
+
 public:
 	AlphaNumericPackage();
-	string GeneratePackage();
 };

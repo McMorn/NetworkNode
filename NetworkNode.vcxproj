@@ -145,10 +145,12 @@
     <ClCompile Include="AlphabeticPackage.cpp" />
     <ClCompile Include="AlphaNumericPackage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="NumericPackage.cpp" />
     <ClCompile Include="Package.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Package.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
