@@ -2,15 +2,15 @@
 
 NumericPackage::NumericPackage()
 {
-	packageLength = GenerateSize();
-	package = "";
+	GeneratePackage();
 }
 
-string NumericPackage::GeneratePackage()
+void NumericPackage::GeneratePackage()
 {
+	packageLength = GenerateSize();
+	package = "";
 	for (int i = 0; i < packageLength; i++)
 	{
 		package += alphanum[rand() % 10];
 	}
-	return package;
 }

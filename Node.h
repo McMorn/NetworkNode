@@ -1,15 +1,34 @@
 #pragma once
 #include <queue>
+#include <cctype>
 #include "Package.h"
+#include "stats.h"
+
 
 class Node
 {
+	struct PCK
+	{
+		int size;
+		string content;
+		bool toDo;
+	};
+	PCK pck;
+	PCK active;
 	bool working;
-	std::queue< Package > queue;
+	std::queue<PCK> queue;
 	int time;
-
-	void PackageProcessing(Package& p);
+	int proceed, digit, alpha;
+	
 
 public:
 	Node();
+
+	void ReceivePackage(Package* package);
+	void Processing();
+
+	int GetDigit();
+	int GetAlpha();
+	int GetProceed();
+	int GetQueue();
 };

@@ -2,15 +2,15 @@
 
 AlphaNumericPackage::AlphaNumericPackage()
 {
-	packageLength = GenerateSize();
-	package = "";
+	GeneratePackage();
 }
 
-string AlphaNumericPackage::GeneratePackage()
+void AlphaNumericPackage::GeneratePackage()
 {
+	packageLength = GenerateSize();
+	package = "";
 	for (int i = 0; i < packageLength; i++)
 	{
 		package += alphanum[rand() % (sizeof(alphanum) - 1)];
 	}
-	return package;
 }
