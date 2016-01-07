@@ -6,6 +6,6 @@
 #include <string>
 #include "Node.h"
 
-void Save(string path, Node* node);
+void Save(string path, Node* node, int n, int t);
 
 

@@ -18,7 +18,7 @@ class Node
 	bool working;
 	std::queue<PCK> queue;
 	int time;
-	int proceed, digit, alpha;
+	int proceed, size, minSize, maxSize, digit, alpha;
 	
 
 public:
@@ -31,4 +31,7 @@ public:
 	int GetAlpha();
 	int GetProceed();
 	int GetQueue();
+	int GetAverageSize();
+	int GetMinSize();
+	int GetMaxSize();
 };

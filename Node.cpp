@@ -7,6 +7,9 @@ Node::Node()
 	proceed = 0;
 	digit = 0;
 	alpha = 0;
+	size = 0;
+	minSize = 255;
+	maxSize = 0;
 }
 
 void Node::ReceivePackage(Package* package)
@@ -15,12 +18,12 @@ void Node::ReceivePackage(Package* package)
 	pck.size = package->GetLength();
 	pck.toDo = true;
 
-	cout << "Receive package" << endl;
+	//cout << "Receive package" << endl;
 
 	if (working)
 	{
 		queue.push(pck);
-		cout << "Package pushed into the queue. Packages in queue: " << queue.size() << endl;
+		//cout << "Package pushed into the queue. Packages in queue: " << queue.size() << endl;
 	}
 }
 
@@ -31,7 +34,7 @@ void Node::Processing()
 	{
 		active = queue.front();
 		queue.pop();
-		cout << "Package pop out of the queue. Packages in queue: " << queue.size() << endl;
+		//cout << "Package pop out of the queue. Packages in queue: " << queue.size() << endl;
 	}
 	else if (pck.toDo)
 	{
@@ -40,7 +43,10 @@ void Node::Processing()
 	}
 	if (active.toDo)
 	{
-		cout << "Stat processing package..." << endl;
+		size += active.size;
+		minSize = (active.size < minSize) ? active.size : minSize;
+		maxSize = (active.size > maxSize) ? active.size : maxSize;
+		//cout << "Stat processing package..." << endl;
 		for (int i = 0; i < active.size; i++)
 		{
 			if (isdigit(active.content[i]))
@@ -56,10 +62,12 @@ void Node::Processing()
 				alpha++;
 			}
 			generatePackage();
+			
+			if (getTime()) return;
 		}
 		active.toDo = false;
 		proceed++;
-		cout << "Package proceed!" << endl;
+		//cout << "Package proceed!" << endl;
 	}
 	working = false;
 }
@@ -82,4 +90,19 @@ int Node::GetProceed()
 int Node::GetQueue()
 {
 	return queue.size();
+}
+
+int Node::GetAverageSize()
+{
+	return size / proceed;
+}
+
+int Node::GetMinSize()
+{
+	return minSize;
+}
+
+int Node::GetMaxSize()
+{
+	return maxSize;
 }
